@@ -13,5 +13,22 @@
 
 	$data = $produtos->listAll();
 
-	var_dump($data);
+	foreach($data as $campo){
+
 ?>
+
+	<table border="2">
+		<thead>
+			<tr>
+				<td>Nome</td>
+				<td>Valor</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><?php echo $campo['NomeProduto']?></td>
+				<td><?php echo $campo['ValorVendaProduto']?></td>
+			</tr>
+		</tbody>
+	</table>
+<?php } ?>
