@@ -1,0 +1,39 @@
+<div id="recebe">
+    <table border="2">
+        <thead>
+            <tr>
+                <td>Nome</td>
+            </tr>
+        </thead>
+
+        <tbody>
+           
+        </tbody>
+    </table>
+</div>
+
+<button onclick="intervalo()">teste</button>
+
+<script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+
+<script>
+
+    function intervalo(){
+        setInterval(function(){ requisita();}, 3000)
+    }
+
+    function requisita(){
+            $.ajax({
+                url: 'requisicao.php',
+                method: 'post',
+
+                success: function(response){
+                    //$('#recebe table tbody').append("<tr><td>"+response+"</td></tr>");
+                }
+            });
+        }
+
+</script>

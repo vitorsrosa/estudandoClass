@@ -3,16 +3,26 @@
 	include('User.php');
 	include('Produto.php');
 
-	$teste = new User();
+	//instanciando a classe User
+	$user = new User();
 
-	$teste->login('admin');
+	//chamando o metodo de validar login
+	$user->verificaLogin('gersomee','admin');
+	
+	//testando com print_r ou var_dump para ver se recebeu os dados
+	foreach($_SESSION['usuario'] as $campo):
+		echo $campo['NomeLogin'];
+	endforeach;
+	
 
-	var_dump($_SESSION['user']);
-
+	/*
+		PARTE DE PRODUTOS
+	*/
 	$produtos = new Produto();
 
-	$data = $produtos->listAll();
+	$data = $produtos->listaProd(8);//recebendo a lista de produtos
 
+	//foreach para varrer o array que recebemos
 	foreach($data as $campo){
 
 ?>
@@ -31,4 +41,5 @@
 			</tr>
 		</tbody>
 	</table>
+	
 <?php } ?>
